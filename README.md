@@ -1,4 +1,4 @@
-# SearchUtils
+# Search Util Python
 
 SearchUtils is a Python utility for searching strings in files within a specified directory.
 
