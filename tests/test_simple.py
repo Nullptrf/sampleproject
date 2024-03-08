@@ -1,17 +1,13 @@
-# the inclusion of the tests module is not meant to offer best practices for
-# testing in general, but rather to support the `find_packages` example in
-# setup.py that excludes installing the "tests" package
+from search import search
 
-import unittest
+# Create a FileSearch object with quiet=False (not suppressing output) and find the string "SomeString" in the current directory
+fs = search.FileSearch(quiet=False).FindString("/home/evil_rc/Desktop", "SomexString")
 
-from sample.simple import add_one
+# Print the return code of the search (True if found, False otherwise)
+print(f"Search return code: {fs}")
 
-
-class TestSimple(unittest.TestCase):
-
-    def test_add_one(self):
-        self.assertEqual(add_one(5), 6)
-
-
-if __name__ == '__main__':
-    unittest.main()
+# Check if the search was successful
+if fs:
+    print("Found successfully.")
+else:
+    print("Not Found.")
